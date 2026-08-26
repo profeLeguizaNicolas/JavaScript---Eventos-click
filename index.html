@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Evento click</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Imagenes/icono.png" type="image/x-icon">
+</head>
+<body>
+    <h1>
+        <span class="amarillo">JavaScript</span> - Evento click.
+    </h1>
+    <p>
+        Los eventos son parte fundamental de la interración entre el usuario y una página <b>WEB</b>. Permiten que el código <span class="amarillo">JavaScript</span> responda a acciones realizadas por el usuario o por el navegador. En <span class="amarillo">JavaScript</span>, los eventos son representados como objetos que contienen información sobre el evento que ha ocurrido. Los eventos pueden ser de diferentes tipos, como click de ratónn, pulsaciones de teclas, cambios de estado, carga de página, etc. Cada tipo de evento puede estar asociado a un elemento <span class="naranja">HTML</span> específico.
+    </p>
+    <b>Escucha de eventos.</b>
+    <p>
+        Para capturar y responder a un evento, debes escuchar dicho evento en un elemento específico del <b>DOM</b> (<i>Document Object Model</i>). Esto se hace mediante la función: <code class="gris"><span class="violeta">addEventListener</span></code>.   
+    </p>
+    <h3><span class="violeta">addEventListener</span><span class="dorado">()</span></h3> <br>
+    <p>
+        La función <code class="gris"><span class="violeta">addEventListener</span></code> es una herramienta esencial en <span class="amarillo">JavaScript</span> para manejar eventos y crear interactividad en tus documentos. Permite vincular funciones conocidas como <i>manejadores de eventos</i>, a elementos <span class="naranja">HTML</span> específicos para responder a diferentes tipos de acciones realizadas por el usuario.
+    </p>
+    <b>Ejemplo práctico:</b>
+    <br>
+    <p>
+        Para comenzar con la práctica inicial necesitaremos un documento <span class="naranja">HTML</span> con el archivo <span class="amarillo">JavaScript</span> vinculado. Dentro del <span class="verde">body</span> agregaremos un texto que diga <code class="gris"><i>Texto de práctica</i></code>, al cual asignaremos el atributo <span class="celeste">class</span> con la declaración <span class="celeste"><i>textoEjemplo,</i></span> y además un botón que también deberá tener un atributo <span class="celeste">class</span>, en este caso con la declaración <span class="celeste"><i>botonEjemplo</i></span>.
+    </p>
+<pre><code class="cpp">&lt;!<span class="verde">DOCTYPE</span> <span class="celeste">HTML</span>>
+&lt;<span class="verde">html</span> <span class="celeste">lang</span>=<span class="celeste">"en"</span>>
+    &lt;<span class="verde">head</span>>
+        &lt;<span class="verde">title</span>>Document&lt;/<span class="verde">title</span>>
+    &lt;/<span class="verde">head</span>>
+    &lt;<span class="verde">body</span>>
+        &lt;<span class="verde">p</span> <span class="celeste">class</span>=<span class="celeste">"textoEjemplo"</span>>Texto de ejemplo&lt;/<span class="verde">p</span>>
+        &lt;<span class="verde">button</span> <span class="celeste">class</span>=<span class="celeste">"botonEjemplo"</span>>Click aquí para cambiar de color&lt;/<span class="verde">button</span>>
+        &lt;<span class="verde">script</span> <span class="celeste">src</span>=<span class="celeste">"main.js"</span>>&lt;/<span class="verde">script</span>>
+    &lt;/<span class="verde">body</span>>
+&lt;/<span class="verde">html</span>></code></pre>
+    <br>
+    <p>
+        Ahora continuaremos con la codificación en <span class="amarillo">JavaScript</span>, donde seleccionaremos los dos elementos <span class="naranja">HTML</span> previamente creados y los almacenaremos en dos variables constantes: Una llamada <b>boton</b> y la otra <b>texto</b>.
+    </p>
+<pre><code class="cpp"><span class="rojo">const</span> boton = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".botonEjemplo"</span>);
+<span class="rojo">const</span> texto = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".textoEjemplo"</span>);</code></pre>        
+    <p>
+        El objetivo de nuestro programa de ejemplo es lograr que, al hacer clic en el <code class="gris">botón</code>, el color del texto cambie. Para ello utilizaremos nuestra variable <code class="gris">boton</code>, seguido de un punto, y luego la función <span class="violeta">addEventListener</span> .
+    </p>
+<pre><code class="cpp"><span class="rojo">const</span> boton = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".botonEjemplo"</span>);
+<span class="rojo">const</span> texto = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".textoEjemplo"</span>);
+
+boton.<span class="violeta">addEventListener</span></code></pre> <br>
+    <p>
+        Abriremos parentesis y, como primer argumento, colocaremos el evento que se escuchará; en este caso será un <code class="gris">click</code>, por lo que escribiremos entre comillas simples <code class="gris">'click'</code>, que se obtiene con la combienación <code>alt + 39</code>.
+    </p>
+<pre><code class="cpp"><span class="rojo">const</span> boton = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".botonEjemplo"</span>);
+<span class="rojo">const</span> texto = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".textoEjemplo"</span>);
+
+boton.<span class="violeta">addEventListener</span><span class="dorado">(</span><span class="celeste">'click'</span></code></pre> <br>
+    <p>
+        Una vez llamado el evento, debemos agregar el segundo parámetro separado por una coma <code class="gris">,</code>. Este segundo parámetro en <span class="violeta">addEventListener</span> será una función, que puede escribirse de distintas formas: funciones declarativas (Aquellas que requieren un nombre), funciones de expresión o funcion flecha (<i>Arrow function</i>). En este ejemplo usaremos <i>Arrow function</i>.
+    </p> 
+    <pre><code class="cpp"><span class="rojo">const</span> boton = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".botonEjemplo"</span>);
+<span class="rojo">const</span> texto = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".textoEjemplo"</span>);
+
+boton.<span class="violeta">addEventListener</span><span class="dorado">(</span><span class="celeste">'click'</span>, <span class="violeta">()</span><span class="rojo">=></span><span class="violeta">{
+
+}</span><span class="dorado">)</span>;</code></pre> <br> 
+    <p>
+        Solo nos resta modificar el estilo del texto dentro de nuestra función, la cual se ejecutará únicamente cuando el botón detecte el evento de un click sobre el elemento. Para hacerlo, llamaremos a la variable <code class="gris">texto</code>, seguido de un punto, luego al método <span class="celeste">style</span>, nuevamente un punto y, a continuación, el atributo <span class="celeste">color</span>, al cual le asignaremos con un igual <code class="gris">=</code> el color en ingles, recordando que este debe ir entre comillas.
+    </p>
+<pre><code class="cpp"><span class="rojo">const</span> boton = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".botonEjemplo"</span>);
+<span class="rojo">const</span> texto = <span class="celeste">document</span>.<span class="violeta">querySelector</span>(<span class="celeste">".textoEjemplo"</span>);
+
+boton.<span class="violeta">addEventListener</span><span class="dorado">(</span><span class="celeste">'click'</span>, <span class="violeta">()</span><span class="rojo">=></span><span class="violeta">{</span>
+    boton.<span class="celeste">style</span>.<span class="celeste">color</span> = <span class="celeste">"red"</span>;
+<span class="violeta">}</span><span class="dorado">)</span>;</code></pre> <br> 
+    <p>
+        Vista documento <span class="naranja">HTML</span>:
+    </p>
+    <div class="center">
+        <img src="Imagenes/imagen1.png" alt="">
+    </div>
+    <p>
+        Despues del Evento click
+    </p>
+    <div class="center">
+        <img src="Imagenes/imagen2.png" alt="">
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="center">
+        <i><a href="ejemplo.html" target="_blank">Documento de ejemplo</a></i>
+    </div>
+    <h3>Listado de eventos de <code class="gris">mouse</code>:</h3>
+    <ul>
+        <li>
+            <code class="gris">click</code>: Se activa cuando se hace clic en un elemento.
+        </li>
+        <li>
+            <code class="gris">dblclick</code>: Se activa cuando se hace doble clic en un elemento.
+        </li>
+        <li>
+            <code class="gris">mousedown</code>: Se activa cuando se presiona un botón del ratón sobre un elemento.
+        </li>
+        <li>
+            <code class="gris">mouseup</code>: Se activa cuando se suelta un botón del ratón sobre un elemento.
+        </li>
+        <li>
+            <code class="gris">mouseover</code>: Se activa cuando el puntero del ratón se mueve sobre un elemento.
+        </li>
+        <li>
+            <code class="gris">mouseout</code>: Se activa cuanto el puntero del ratón se mueve fuera de un elemento.
+        </li>
+        <li>
+            <code class="gris">mousemove</code>: Se activa cuando el puntero del ratón se mueve mientras está sobre un elemento.
+        </li>
+        <li>
+            <code class="gris">contextmenu</code>: Se activa cuando se hace clic con el botón drecho del ratón. 
+        </li>
+    </ul>
+    <fieldset>
+        <b><i><a href="https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener">Bibliografía de respaldo.</a></i></b>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    <fieldset>
+        <legend><b>Ejercicios</b></legend>
+        <p>
+            En todos los ejercicios, todos los elementos deben ser creados y manipulados exclusivamente desde el archivo <span class="amarillo">JavaScript</span>.
+        </p>
+        <ol>
+            <li>
+                <p>
+                   Al hacer clic en un botón, cambiará el color de fondo de un elemento específico. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Al hacer clic en un botón, se mostrará y ocultara un elemento específico.
+                </p>
+                <p>
+                    <code class="gris">display: none, para ocultar el elemento, display:flex para mostrar.</code>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Al hacer clic en un botón, cambiará el texto de un elemento específico.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Al hacer clic en un botón, se añadirá un nuevo elemento al <span class="verde">body</span>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Al hacer clic en un botón, se eliminará un elemento en el <span class="verde">body</span>.
+                </p>
+                <p>
+                    <i>
+                        Para eliminar o remover, utiliza el metodo <code class="gris"><span class="violeta">removeChild</span><span class="dorado">()</span></code>
+                    </i>
+                </p>
+<pre><code class="cpp">body.<span class="violeta">removeChild</span>(<span class="dorado">div</span>)</code></pre>
+            </li>
+            <li>
+                <p>
+                    Al pasar el ratón por encima de un elemento, cambiará su color de fondo.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Al hacer doble clic en un elemento, este se agrandará.
+                </p>
+                <p>
+                    <i>Realiza un <code class="gris">template</code>, para eso tienes que utilizar las <code class="gris">backticks</code>, <code class="gris">``</code> alt + 96</i>
+                </p>
+                <b>Ejemplo:</b>
+<pre><code class="cpp"><span class="celeste">div</span>.style.width = `<span class="celeste">${</span>variable<span class="celeste">}px</span>`;</code></pre>
+            </li>
+            <li>
+                <p>
+                    Al hacer clic en un botón, el elemento se desplazará hacia la derecha.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Cuando se haga doble clic en un elemento, deberá agrandarse. Al hacer otro doble clic, deberá volver a su tamaño original.
+                </p>
+            </li>
+        </ol>
+    </fieldset>
+
+</body>
+</html>
